@@ -1,24 +1,21 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+// 1. დაწერე ფუნქცია, რომელიც მიიღებს a და b პარამეტრებს და დააბრუნებს ტექსტს
+// “ტოლია” თუ a უდრის b-ს, ხოლო წინააღმდეგ შემთხვევაში, დააბრუნებს “არარის ტოლი”
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+// !!!გაითვალისწინე, რომ a და b ყოველთვის ერთი და იგივე ტიპის არ არის
 
-setupCounter(document.querySelector('#counter'))
+function isEqual(a, b) {
+  if (a === b) return "ტოლია";
+  else return "არ არის ტოლი";
+}
+
+console.log(isEqual(5, 5));
+
+// 2. დაწერე ფუნქცია, რომელიც პარამეტრად მიიღებს ტემპერატურას ფარენჰეიტებში და
+// დააბრუნებს ტემპერატურას ცელსიუსში.
+
+// !!!თუ პარამეტრი არ არის რიცხვითი მონაცემი დააბრუნე - false
+
+//  3. დაწერე ფუნქცია, რომელიც პარამეტრად მიიღებს a (პირველი რიცხვი), b (მეორე რიცხვი) და operation (+, -, *, /)
+//  და დააბრუნებს ახალ მნიშვნელობას, რომელიც მიიღება ამ ორ რიცხვზე operation ცვლადში განსაზღვრული ოპერაციით
+
+// !!!თუ a და b არ არიან რიცხვები, ან თუ operation ცვლადში არის უცნობი, ოპერაცია დააბრუნე - false
