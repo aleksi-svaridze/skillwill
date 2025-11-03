@@ -13,16 +13,31 @@ const users = [
 ];
 
 function littleUser(userArr) {
-  let lowerage = userArr[0];
+  let lowerAge = userArr[0];
 
   for (let user of userArr) {
-    if (user.age < lowerage.age) {
-      lowerage = user;
+    if (user.age < lowerAge.age) {
+      lowerAge = user;
     }
   }
 
-  return lowerage.name;
+  return lowerAge.name;
 }
 let result = littleUser(users);
+// console.log(result);
 
-console.log(result);
+// დაწერეთ პროგრამა, სადაც ორი a და b მომხმარებლები აგორებენ კამათელს მანამ, სანამ არ გაგორდება 3-იანი.
+// რომელიც უფრო ნაკლებ ცდაში გააგორებს 3-იანს, ის არის გამარჯვებული.
+
+let playerOne = () => {
+  return parseInt(Math.random() * 10);
+};
+let playerTwo = () => {
+  return parseInt(Math.random() * 10);
+};
+
+// console.log("user one: ", userOne());
+// console.log("user two: ", playerTwo());
+
+// დაწერეთ ფუნქცია, რომელიც პარამეტრად მიიღებს user ობიექტს და დააბრუნებს იგივე მნიშვნელობის მქონე
+//  ახალ (განსხვავებულ) ობიექტს.
