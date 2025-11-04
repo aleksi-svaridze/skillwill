@@ -70,12 +70,13 @@ const user = {
   id: 1,
   fullName: "John Doe",
   age: 77,
-  hobbies: ["Coding", "Designing", "copy writing"],
 };
 
 function reCreate(oldObj) {
-  const newObj = new Object(oldObj);
+  const newObj = Object.assign({}, oldObj); // or Object.assign({}, oldObj);
   return newObj;
 }
 
-console.log(reCreate(user));
+const newObject = reCreate(user);
+
+console.log(newObject === user); // False, objects are defference
