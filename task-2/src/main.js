@@ -26,18 +26,56 @@ function littleUser(userArr) {
 let result = littleUser(users);
 // console.log(result);
 
+// ------------------------------------------------------------------------------------------------------------
+
 // დაწერეთ პროგრამა, სადაც ორი a და b მომხმარებლები აგორებენ კამათელს მანამ, სანამ არ გაგორდება 3-იანი.
 // რომელიც უფრო ნაკლებ ცდაში გააგორებს 3-იანს, ის არის გამარჯვებული.
 
-let playerOne = () => {
-  return parseInt(Math.random() * 10);
-};
-let playerTwo = () => {
-  return parseInt(Math.random() * 10);
-};
+function getPlayerScore(player) {
+  let getRandomNumber = () => Math.floor(Math.random() * 10);
 
-// console.log("user one: ", userOne());
-// console.log("user two: ", playerTwo());
+  let attempts = 0;
+  let number;
+
+  do {
+    number = getRandomNumber();
+    attempts++;
+    console.log(`${player} attempt ${attempts}: ${number}`);
+  } while (number !== 3);
+
+  return attempts;
+}
+
+let playerOneResult = getPlayerScore("Player ONE");
+let playerTwoResult = getPlayerScore("Player TWO");
+
+// Result
+if (playerOneResult > playerTwoResult)
+  console.log(
+    `Player TWO has - ${playerTwoResult} attempts. Player ONE has - ${playerOneResult} attempts. Player Two is a WINNER!`
+  );
+else if (playerOneResult < playerTwoResult)
+  console.log(
+    `Player TWO has - ${playerTwoResult} attempts. Player ONE has - ${playerOneResult} attempts. Player One is a WINNER!`
+  );
+else
+  console.log(
+    `Player TWO has - ${playerTwoResult} attempts. Player ONE has - ${playerOneResult} attempts. It's a DRAW!`
+  );
 
 // დაწერეთ ფუნქცია, რომელიც პარამეტრად მიიღებს user ობიექტს და დააბრუნებს იგივე მნიშვნელობის მქონე
 //  ახალ (განსხვავებულ) ობიექტს.
+
+const user = {
+  id: 1,
+  fullName: "John Doe",
+  age: 77,
+  hobbies: ["Coding", "Designing", "copy writing"],
+};
+
+function reCreate(oldObj) {
+  const newObj = new Object(oldObj);
+  return newObj;
+}
+
+console.log(reCreate(user));
