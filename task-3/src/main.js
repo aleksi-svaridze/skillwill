@@ -2,6 +2,19 @@
 // უნდა დააბრუნოს 2 - ელემენტიანი მასივი, სადაც პირველი ელემენტია პირველი და
 // მეორე პარამეტრის ჯამი, ხოლო მეორე ელემენტი - მესამე ელემენტიდან დაწყებული ყველა დანარჩენის ნამრავლი
 
+function someFun(a, b, ...params) {
+  let firstEl = a + b;
+  let secondEl = 1;
+
+  for (let param of params) {
+    secondEl *= param;
+  }
+
+  return [firstEl, secondEl];
+}
+const result = someFun(2, 3, 5, 7, 9);
+console.log(result);
+
 // დავუშვათ გვინდა ობიექტიდან წავიკითხოთ შემდეგი ველი: user.banks[2].address.city. დაწერე ფუნქცია, რომელიც პარამეტრად
 // მიიღებს user ობიექტს და დააბრუნებს cityს. გამოიყენე destructuring-ი. თუ ასეთი ველი არ არსებობს უნდა დაბრუნდეს
 // undefined
