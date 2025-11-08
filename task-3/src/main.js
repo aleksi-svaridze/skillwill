@@ -19,45 +19,27 @@ const result = someFun(2, 3, 5, 7, 9);
 console.log(result);
 
 // დავუშვათ გვინდა ობიექტიდან წავიკითხოთ შემდეგი ველი: user.banks[2].address.city. დაწერე ფუნქცია, რომელიც პარამეტრად
-// მიიღებს user ობიექტს და დააბრუნებს cityს. გამოიყენე destructuring-ი. თუ ასეთი ველი არ არსებობს უნდა დაბრუნდეს
+// მიიღებს user ობიექტს და დააბრუნებს city-ს. გამოიყენე destructuring-ი. თუ ასეთი ველი არ არსებობს უნდა დაბრუნდეს
 // undefined
 
-// const user = {
-//   banks: [
-//     {
-//       name: "Bank of America",
-//       address: { city: "New York" },
-//     },
-//     {
-//       name: "Bank of England",
-//       address: { city: "London" },
-//     },
-//     {
-//       name: "Bank of Japan",
-//       address: { city: "Tokyo" },
-//     },
-//     {
-//       name: "Bank of Georgia",
-//       address: { city: "Tbilisi" },
-//     },
-//   ],
-// };
+function getCity(user) {
+  const { banks } = user || {};
+  const { address } = banks?.[2] || {};
+  const { city } = address || {};
+  return city;
+}
 
-// const returnObjValue = function (user) {
-//   let {
-//     banks,
-//     banks: [name, { address: { city } = {} }],
-//   } = user;
+// Example:
+const userObj = {
+  name: "John",
+  banks: [
+    { address: { city: "London" } },
+    { address: { city: "Paris" } },
+    { address: { city: "New York" } }, // If comment this line, program will return 'undefined'
+  ],
+};
 
-//   for (let bank of banks) {
-//     console.log(`${bank.name} - ${bank.address.city}`);
-//   }
-
-//   let city = user.banks[3].address.city;
-//   console.log(city);
-// };
-
-// returnObjValue(user);
+console.log(getCity(userObj)); // "New York"
 
 // დაწერე ფუნქცია, რომელიც პარამეტრად მიიღებს ნებისმიერ ობიექტს და დააბრუნებს იგივე მნიშვნელობების მქონე
 // ახალ (განსხვავებულ) ობიექტს
