@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./colored-bg.css" />
+    <title>Colored bg</title>
+  </head>
+  <body>
+    <!-- 
+        შექმენი input და button
+        ● input-ში მომხმარებელი ჩაწერს ფერს და
+        button ღილაკზე დაწკაპების შემდეგ body-ს
+        background შეიცვლება ჩაწერილ ფერად
+        ● (ფერები რომლის ჩაწერაც შეუძლია: red,
+        blue, green, black, white)
+        ● თუ სხვა ფერი ჩაწერა, გამოუტანე
+        შეტყობინება alert-ის საშუალებით 
+      -->
+
+    <div>
+      <input type="text" id="input" />
+      <button class="btn">Go</button>
+    </div>
+
+    <script>
+      const input = document.getElementById("input");
+      const btn = document.querySelector(".btn");
+
+      const colors = ["red", "blue", "green", "black", "white"];
+
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        // switch (input.value.toLowerCase()) {
+        //   case "red":
+        //     document.body.style.backgroundColor = "red";
+        //     input.value = "";
+        //     break;
+        //   case "green":
+        //     document.body.style.backgroundColor = "green";
+        //     input.value = "";
+        //     break;
+        //   case "blue":
+        //     document.body.style.backgroundColor = "blue";
+        //     input.value = "";
+        //     break;
+        //   case "black":
+        //     document.body.style.backgroundColor = "black";
+        //     input.value = "";
+        //     break;
+        //   case "white":
+        //     document.body.style.backgroundColor = "white";
+        //     input.value = "";
+        //     break;
+        //   default:
+        //     alert("Enter following colours - red, green, black, blue, white");
+        //     input.value = "";
+        // }
+
+        if (colors.includes(input.value.toLowerCase())) {
+          document.body.setAttribute(
+            "style",
+            `background-color: ${input.value}`
+          );
+          input.value = "";
+        } else {
+          alert("Enter following colours - red, green, black, blue, white");
+          input.value = "";
+        }
+      });
+    </script>
+  </body>
+</html>

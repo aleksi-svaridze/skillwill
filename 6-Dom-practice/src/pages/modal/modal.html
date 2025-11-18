@@ -4,9 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./modal.css" />
-    <title>Document</title>
+    <title>Modal</title>
   </head>
   <body>
+    <!-- შექმენი button, რომელზე დაწკაპების შემდეგაც გაიხსნება მოდალი და მოდალის
+უკან შავი/გამჭვირვალე background  -->
+
     <div class="modal-wrapper">
       <div class="modal-box">
         <h2>This is a modal box!</h2>
@@ -20,12 +23,12 @@
       const btn = document.querySelector(".btn");
       btn.addEventListener("click", (e) => {
         e.preventDefault();
-        document.querySelector(".modal-wrapper").classList.add("show-modal");
+        document.querySelector(".modal-wrapper").classList.toggle("show-modal");
       });
 
       document.querySelector(".close-modal").addEventListener("click", (e) => {
         e.preventDefault();
-        document.querySelector(".modal-wrapper").classList.remove("show-modal");
+        document.querySelector(".modal-wrapper").classList.toggle("show-modal");
       });
     </script>
   </body>
