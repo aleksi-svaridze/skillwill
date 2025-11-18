@@ -7,30 +7,46 @@
     <title>Average</title>
   </head>
   <body>
-    <!-- 
-    ● შექმენი input, სადაც მომხმარებელს
-        შესაძლებლობა ექნება შეიტანოს “:”- ით
-        ერთმანეთისგან გამოყოფილი რიცხვები,
-        average ღილაკზე დაწკაპების შემდეგ
-        დაითვალე ამ რიცხვების საშუალო და
-        გამოუტანე ეკრანზე
-    ● მაგ: 1:2:3:4:5 ეკრანზე გამოიტანს 3-ს
- -->
+    <ul>
+      <li><a href="../../../index.html">Home</a></li>
+      <li><a href="../modal/modal.html">Task - Show Modal</a></li>
+      <li>
+        <a href="../colored-bg/colored-bg.html">Task - Colored bg</a>
+      </li>
+    </ul>
+    <h1>
+      შექმენი input, სადაც მომხმარებელს შესაძლებლობა ექნება შეიტანოს “:”- ით
+      ერთმანეთისგან გამოყოფილი რიცხვები, average ღილაკზე დაწკაპების შემდეგ
+      დაითვალე ამ რიცხვების საშუალო და გამოუტანე ეკრანზე. მაგ: 1:2:3:4:5 ეკრანზე
+      გამოიტანს 3-ს
+    </h1>
 
     <div>
       <input type="text" id="input" />
       <button class="btn">Go</button>
     </div>
 
+    <p class="output"></p>
+
     <script>
-      const userInput = document.querySelector("#input");
       const btn = document.querySelector(".btn");
+      const output = document.querySelector(".output");
 
       btn.addEventListener("click", (e) => {
-        // ინფუთი გადავაქციოთ მასივად
-        userInput.value.split(":", " ");
-        e.preventDefault();
-        console.log(userInput.value, userInput.value.split(":", " "));
+        // e.preventDefault();
+        const userInput = document.querySelector("#input").value;
+
+        const numbersArray = userInput.split(":").map(Number);
+
+        if (numbersArray.length === 0) {
+          output.textContent = "Enter some nimbers";
+          return;
+        }
+        let sum = numbersArray.reduce((total, number) => total + number, 0);
+        let average = sum / numbersArray.length;
+
+        output.textContent =
+          "Average of " + numbersArray + " is " + average.toFixed(1);
       });
     </script>
   </body>
