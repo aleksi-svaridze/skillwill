@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./modal.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="modal-wrapper">
+      <div class="modal-box">
+        <h2>This is a modal box!</h2>
+        <button class="close-modal">Close Modal</button>
+      </div>
+    </div>
+
+    <button class="btn">Open Modal</button>
+
+    <script>
+      const btn = document.querySelector(".btn");
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        document.querySelector(".modal-wrapper").classList.add("show-modal");
+      });
+
+      document.querySelector(".close-modal").addEventListener("click", (e) => {
+        e.preventDefault();
+        document.querySelector(".modal-wrapper").classList.remove("show-modal");
+      });
+    </script>
+  </body>
+</html>
