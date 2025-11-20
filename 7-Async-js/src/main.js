@@ -1,5 +1,20 @@
-// setTimeout ფუნქცია იყენებს callback-ს, დაწერეთ მისი promise-ზე დადაფუძნებული
+// setTimeout ფუნქცია იყენებს callback-ს, დაწერეთ მისი promise-ზე დაფუძნებული
 // ალტერნატივა  (მაგ: mySetTimeout(delay).then(...)
+function mySetTimeOut(delay) {
+  return new Promise((resolve, reject) => {
+    if (!delay) {
+      reject("Something is WRONG! Delay does not exists");
+    } else {
+      setTimeout(() => {
+        resolve("Everything is OK");
+      }, delay);
+    }
+  });
+}
+
+mySetTimeOut(2000)
+  .then((response) => console.log(response))
+  .catch((error) => console.log(error));
 
 // ● გამოიყენე პირველ დავალებაში შექმნილი ფუნქცია, რათა განავრცო ჩვენს მიერ
 // დაწერილი “Toy Shop” შემდეგი პირობის იმპლემენტაციით:
