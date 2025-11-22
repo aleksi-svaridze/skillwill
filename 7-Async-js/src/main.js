@@ -28,3 +28,30 @@ const output = mySetTimeOut(2000)
 // შესაბამისად წყვეტდეს მოხდება თუ არა მისი შესრულება
 // ● გამოიყენე .then().catch() და async/await
 // ● სინტაქსები. (2 ვარიანტი)
+
+function makeToys() {
+  return new Promise((resolve, reject) => {
+    if (Math.random() > 0.1) {
+      resolve("Undefected");
+    } else {
+      reject("Defected");
+    }
+  });
+}
+
+makeToys()
+  .then((status) => sellToys(status))
+  .then((res) => console.log(res))
+  .catch((err) => console.log(err));
+
+function sellToys(status) {
+  return new Promise((resolve, reject) => {
+    if (status === "Undefected") {
+      if (Math.random() > 0.7) {
+        resolve("Sold");
+      } else {
+        reject("not sold, defected");
+      }
+    }
+  });
+}
