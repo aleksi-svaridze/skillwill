@@ -1,3 +1,4 @@
+const heading = document.querySelector("h1");
 // setTimeout ფუნქცია იყენებს callback-ს, დაწერეთ მისი promise-ზე დაფუძნებული
 // ალტერნატივა  (მაგ: mySetTimeout(delay).then(...)
 function mySetTimeOut(delay) {
@@ -12,9 +13,9 @@ function mySetTimeOut(delay) {
   });
 }
 
-mySetTimeOut(2000)
-  .then((response) => console.log(response))
-  .catch((error) => console.log(error));
+const output = mySetTimeOut(2000)
+  .then((response) => (heading.textContent = response))
+  .catch((error) => (heading.textContent = error));
 
 // ● გამოიყენე პირველ დავალებაში შექმნილი ფუნქცია, რათა განავრცო ჩვენს მიერ
 // დაწერილი “Toy Shop” შემდეგი პირობის იმპლემენტაციით:
