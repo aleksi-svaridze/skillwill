@@ -53,3 +53,44 @@ fetchData();
 // არგუმენტი არ არის ობიექტი. თუ
 // ყველაფერი კარგად არის, გამოიძახოს
 // resolve კოპირებული ობიექტით
+
+const user = {
+  id: 1,
+  fullName: "John Doe",
+  age: 77,
+  address: {
+    city: "Tbilisi",
+    street: "Chubinashvili",
+  },
+  hobbies: ["Coding", "Reading"],
+};
+
+function deepCopy(obj) {
+  // Primitives
+  if (typeof obj !== "object" || obj === null) {
+    return obj;
+  }
+  // Arrays
+  if (Array.isArray(obj)) {
+    return obj.map((item) => deepCopy(item));
+  }
+  // Objects
+  const newObj = { ...obj };
+  for (let key in newObj) {
+    newObj[key] = deepCopy(newObj[key]);
+  }
+  return newObj;
+}
+
+function copyObj(obj) {
+  const newObj = deepCopy(obj);
+
+  return new Promise((resolve, reject) => {
+    if (typeof obj !== "object" || newObj === obj) reject("Fix this function!");
+    return resolve(newObj);
+  });
+}
+
+copyObj(user)
+  .then((res) => console.log(res))
+  .catch((err) => console.log(err));
