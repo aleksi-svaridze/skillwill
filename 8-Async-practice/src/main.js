@@ -6,6 +6,15 @@
 // მაგალითად: 5 ხარისხად 3 - არის 125 (5 * 5
 // *5)
 
+function expo(number, power, callback) {
+  if (power === 0) {
+    return callback(1);
+  }
+
+  return expo(number, power - 1, (result) => callback(number * result));
+}
+console.log(expo(5, 3, (result) => result));
+
 // fetch ფუნქციის გამოყენებით წამოიღე
 // მონაცემები მოცემული მისამართიდან(https://jsonplaceholder.typicode.com/posts) და
 // გამოიტანე DOM-ში პოსტის სახით
