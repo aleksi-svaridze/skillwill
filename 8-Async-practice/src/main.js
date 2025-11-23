@@ -10,6 +10,33 @@
 // მონაცემები მოცემული მისამართიდან(https://jsonplaceholder.typicode.com/posts) და
 // გამოიტანე DOM-ში პოსტის სახით
 
+import "./style.css";
+const displayPosts = (post) => {
+  document.querySelector("#posts").innerHTML += `
+        <div class='post-card'>
+            <h2>${post.title}</h2>
+            <p>${post.body}</p>
+        </div>
+    `;
+};
+const fetchData = async () => {
+  try {
+    const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+
+    if (!response.ok) {
+      throw Error("Bad Request");
+    }
+    const posts = await response.json();
+
+    posts.slice(0, 5).forEach((post) => {
+      displayPosts(post);
+    });
+  } catch (err) {
+    console.log(err.message);
+  }
+};
+fetchData();
+
 // დაწერე ასინქრონული ფუნქცია, რომელიც
 // არგუმენტად იღებს ობიექტს და აკეთებს
 // deep copy-ს
