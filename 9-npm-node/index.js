@@ -1,8 +1,3 @@
-import validator from "validator";
-
-console.log(validator.isEmail("abcDE123")); // False
-console.log(validator.isEmail("test@test.com")); // True
-
 // 1 . მოახდინე პროექტის ინიციალიზაცია
 // npm init
 
@@ -15,5 +10,7 @@ console.log(validator.isEmail("test@test.com")); // True
 // 4 . დოკუმენტაციის მიხედვით გამოიყენე ბრძანება isEmail და დაბეჭდე არის თუ არა
 //     შემდეგი სიტყვები მეილი: test@test.com, abcDE123
 
-// console.log(validator.isEmail("abcDE123")); // False
-// console.log(validator.isEmail("test@test.com")); // True
+import validator from "validator";
+
+console.log(validator.isEmail("abcDE123")); // False
+console.log(validator.isEmail("test@test.com")); // True
