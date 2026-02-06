@@ -8,6 +8,6 @@
 
 ## UPWORK
 
-[Fiverr](https://www.fiverr.com/aleksi_svaridze?public_mode=true)
+[Upwork](https://www.upwork.com/freelancers/~01ce6aaa0db8ddf941?viewMode=1)
 
-![fiverr Profile Image](image.jpg)
+![Upwork Profile Image](https://github.com/aleksi-svaridze/skillwill/blob/0e38b0fad180ac45a0e349cf9dc769f4bd7ba0c8/CareerCare/12-task/upwork.png)
